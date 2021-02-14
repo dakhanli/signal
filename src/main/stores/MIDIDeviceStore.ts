@@ -8,7 +8,7 @@ export class MIDIDeviceStore {
   isLoading = false
   enabledOutputIds: Set<string> = new Set()
   enabledInputIds: Set<string> = new Set()
-  isFactorySoundEnabled = true
+  // isFactorySoundEnabled = true
 
   constructor() {
     makeObservable(this, {
@@ -18,7 +18,7 @@ export class MIDIDeviceStore {
       isLoading: observable,
       enabledOutputIds: observable,
       enabledInputIds: observable,
-      isFactorySoundEnabled: observable,
+      // isFactorySoundEnabled: observable,
       setInputEnable: action,
       setOutputEnable: action,
     })

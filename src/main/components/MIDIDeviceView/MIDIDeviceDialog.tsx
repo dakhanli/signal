@@ -6,7 +6,7 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
-  DialogTitle,
+  DialogTitle
 } from "@material-ui/core"
 import { Alert } from "@material-ui/lab"
 import { useObserver } from "mobx-react-lite"
@@ -53,7 +53,7 @@ const Spacer = styled.div`
 `
 
 export const MIDIDeviceDialog: FC = () => {
-  const { midiDeviceStore, rootViewStore } = useStores()
+  const { midiDeviceStore, soundDeviceStore, rootViewStore } = useStores()
 
   const {
     inputs,
@@ -71,7 +71,7 @@ export const MIDIDeviceDialog: FC = () => {
     requestError: midiDeviceStore.requestError,
     enabledInputIds: midiDeviceStore.enabledInputIds,
     enabledOutputIds: midiDeviceStore.enabledOutputIds,
-    isFactorySoundEnabled: midiDeviceStore.isFactorySoundEnabled,
+    isFactorySoundEnabled: soundDeviceStore.isFactorySoundEnabled,
     isOpen: rootViewStore.openDeviceDialog,
   }))
 
@@ -140,7 +140,7 @@ export const MIDIDeviceDialog: FC = () => {
                 device={factorySound}
                 isSelected={isFactorySoundEnabled}
                 onCheck={(checked) =>
-                  (midiDeviceStore.isFactorySoundEnabled = checked)
+                  (soundDeviceStore.isFactorySoundEnabled = checked)
                 }
               />
               {outputDevices.map(({ device, isSelected }) => (

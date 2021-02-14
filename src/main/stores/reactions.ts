@@ -15,7 +15,7 @@ export const registerReactions = (rootStore: RootStore) => {
   )
 
   observe(
-    rootStore.midiDeviceStore,
+    rootStore.soundDeviceStore,
     "isFactorySoundEnabled",
     updateOutputDevices(rootStore)
   )
@@ -56,7 +56,7 @@ type Reaction = (rootStore: RootStore) => () => void
 
 // sync synthGroup.output to enabledOutputIds/isFactorySoundEnabled
 const updateOutputDevices: Reaction = ({
-  midiDeviceStore,
+  midiDeviceStore, soundDeviceStore,
   services: { player, synth, synthGroup },
 }) => () => {
   player.allSoundsOff()
@@ -76,7 +76,7 @@ const updateOutputDevices: Reaction = ({
   synthGroup.outputs = [
     {
       synth: synth,
-      isEnabled: midiDeviceStore.isFactorySoundEnabled,
+      isEnabled: soundDeviceStore.isFactorySoundEnabled,
     },
     ...getMIDIDeviceEntries(),
   ]

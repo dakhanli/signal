@@ -17,6 +17,7 @@ import { registerReactions } from "./reactions"
 import RootViewStore from "./RootViewStore"
 import Router from "./Router"
 import SettingsStore from "./SettingsStore"
+import { SoundDeviceStore } from "./SoundDeviceStore"
 import TempoEditorStore from "./TempoEditorStore"
 
 export interface Services {
@@ -39,6 +40,7 @@ export default class RootStore {
   arrangeViewStore = new ArrangeViewStore()
   tempoEditorStore = new TempoEditorStore()
   midiDeviceStore = new MIDIDeviceStore()
+  soundDeviceStore = new SoundDeviceStore()
 
   services: Services
 
