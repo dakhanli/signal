@@ -53,7 +53,7 @@ const Spacer = styled.div`
 `
 
 export const MIDIDeviceDialog: FC = () => {
-  const { midiDeviceStore, soundDeviceStore, rootViewStore } = useStores()
+  const { midiDeviceStore, rootViewStore } = useStores()
 
   const {
     inputs,
@@ -63,7 +63,6 @@ export const MIDIDeviceDialog: FC = () => {
     isOpen,
     enabledInputIds,
     enabledOutputIds,
-    isFactorySoundEnabled,
   } = useObserver(() => ({
     inputs: midiDeviceStore.inputs,
     outputs: midiDeviceStore.outputs,
@@ -71,7 +70,6 @@ export const MIDIDeviceDialog: FC = () => {
     requestError: midiDeviceStore.requestError,
     enabledInputIds: midiDeviceStore.enabledInputIds,
     enabledOutputIds: midiDeviceStore.enabledOutputIds,
-    isFactorySoundEnabled: soundDeviceStore.isFactorySoundEnabled,
     isOpen: rootViewStore.openDeviceDialog,
   }))
 
@@ -136,13 +134,6 @@ export const MIDIDeviceDialog: FC = () => {
               {localized("outputs", "Outputs")}
             </DialogContentText>
             <DeviceList>
-              <DeviceRow
-                device={factorySound}
-                isSelected={isFactorySoundEnabled}
-                onCheck={(checked) =>
-                  (soundDeviceStore.isFactorySoundEnabled = checked)
-                }
-              />
               {outputDevices.map(({ device, isSelected }) => (
                 <DeviceRow
                   key={device.id}

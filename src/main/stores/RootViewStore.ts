@@ -6,6 +6,7 @@ export default class RootViewStore {
   openDrawer = false
   openHelp = false
   openDeviceDialog = false
+  openSoundDeviceDialog = false
   openEventEditor = false
   eventEditorEvents: TrackEvent[] = []
 
@@ -15,6 +16,7 @@ export default class RootViewStore {
       openDrawer: observable,
       openHelp: observable,
       openDeviceDialog: observable,
+      openSoundDeviceDialog: observable,
       openEventEditor: observable,
       eventEditorEvents: observable.shallow,
     })

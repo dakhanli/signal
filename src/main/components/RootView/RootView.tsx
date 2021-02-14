@@ -9,6 +9,7 @@ import { EventEditor } from "../EventEditor/EventEditor"
 import { HelpDialog } from "../Help/HelpDialog"
 import { MIDIDeviceDialog } from "../MIDIDeviceView/MIDIDeviceDialog"
 import { PianoRollEditor } from "../PianoRoll/PianoRollEditor"
+import { SoundDeviceDialog } from "../SoundDeviceView/SoundDeviceDialog"
 import { TempoEditor } from "../TempoGraph/TempoEditor"
 import { TransportPanel } from "../TransportPanel/TransportPanel"
 
@@ -38,6 +39,7 @@ export const RootView: FC = () => (
     <BuildInfo />
     <HelpDialog />
     <MIDIDeviceDialog />
+    <SoundDeviceDialog />
     <EventEditor />
   </Container>
 )

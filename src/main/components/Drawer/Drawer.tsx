@@ -4,7 +4,7 @@ import {
   List,
   ListItem,
   ListItemText,
-  ListSubheader,
+  ListSubheader
 } from "@material-ui/core"
 import { Help } from "@material-ui/icons"
 import { useObserver } from "mobx-react-lite"
@@ -77,6 +77,18 @@ export const Drawer: FC = () => {
           }}
         >
           <ListItemText primary={localized("midi-settings", "MIDI Settings")} />
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListItem
+          button
+          onClick={() => {
+            close()
+            rootViewStore.openSoundDeviceDialog = true
+          }}
+        >
+          <ListItemText primary={localized("sound-device-settings", "Sound Devices")} />
         </ListItem>
       </List>
       <Divider />
